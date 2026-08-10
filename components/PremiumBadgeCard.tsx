@@ -29,81 +29,19 @@ export default function PremiumBadgeCard({ badge, index }: { badge: BadgeProps; 
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay: index * 0.1, duration: 0.5 }}
-      whileHover={{ scale: 1.02, y: -4 }}
+      whileHover={{ scale: 1.01, y: -2 }}
       onHoverStart={() => setIsHovered(true)}
       onHoverEnd={() => setIsHovered(false)}
       className="relative group"
-      style={{
-        filter: isHovered 
-          ? `drop-shadow(0 20px 40px rgba(${badge.glowColor === 'amber' ? '251, 191, 36' : badge.glowColor === 'red' ? '239, 68, 68' : '100, 100, 100'}, 0.3))`
-          : 'drop-shadow(0 10px 20px rgba(0, 0, 0, 0.3))'
-      }}
     >
-      {/* Premium Shadow Layers */}
-      <div 
-        className={`absolute inset-0 rounded-2xl bg-gradient-to-r ${badge.gradient} opacity-20 blur-xl`}
-        style={{ transform: 'translateY(8px)' }}
-      />
-      <div 
-        className={`absolute inset-0 rounded-2xl bg-gradient-to-r ${badge.gradient} opacity-10 blur-2xl`}
-        style={{ transform: 'translateY(12px)' }}
-      />
-      
-      {/* Animated Glow Border */}
-      <motion.div
-        className={`absolute -inset-[2px] bg-gradient-to-r ${badge.gradient} rounded-2xl`}
-        animate={{
-          opacity: isHovered ? [0.2, 0.4, 0.2] : 0.1,
-        }}
-        transition={{
-          duration: 2,
-          repeat: Infinity,
-          ease: "easeInOut"
-        }}
-      />
-
-      {/* Main Card */}
-      <div className="relative bg-gradient-to-br from-[#0f0f12] to-[#18181b] rounded-2xl p-5 border-2 border-white/10 overflow-hidden"
+      {/* Main Card - Minimalist Border */}
+      <div className="relative bg-gradient-to-br from-[#0f0f12] to-[#18181b] rounded-2xl p-5 border border-white/10 overflow-hidden"
            style={{
              boxShadow: isHovered 
-               ? `0 0 0 1px rgba(255,255,255,0.1), 0 20px 60px rgba(0,0,0,0.5)`
-               : '0 0 0 1px rgba(255,255,255,0.05), 0 10px 30px rgba(0,0,0,0.3)'
+               ? '0 4px 20px rgba(0, 0, 0, 0.4)'
+               : '0 2px 10px rgba(0, 0, 0, 0.3)'
            }}
       >
-        {/* Animated Background Gradient */}
-        <motion.div
-          className={`absolute inset-0 bg-gradient-to-br ${badge.gradient} opacity-0`}
-          animate={{
-            opacity: isHovered ? 0.05 : 0,
-          }}
-          transition={{ duration: 0.3 }}
-        />
-
-        {/* Floating Particles Effect */}
-        <div className="absolute inset-0 overflow-hidden">
-          {[...Array(3)].map((_, i) => (
-            <motion.div
-              key={i}
-              className={`absolute w-1 h-1 bg-gradient-to-r ${badge.gradient} rounded-full`}
-              animate={{
-                y: [0, -100],
-                x: [0, Math.random() * 50 - 25],
-                opacity: [0, 1, 0],
-              }}
-              transition={{
-                duration: 3,
-                repeat: Infinity,
-                delay: i * 1,
-                ease: "easeOut"
-              }}
-              style={{
-                left: `${20 + i * 30}%`,
-                bottom: 0,
-              }}
-            />
-          ))}
-        </div>
-
         {/* Content */}
         <div className="relative z-10">
           {/* Header Row */}
@@ -159,27 +97,14 @@ export default function PremiumBadgeCard({ badge, index }: { badge: BadgeProps; 
             <motion.div
               className="relative"
               animate={{
-                rotateY: isHovered ? 360 : 0,
+                rotateY: isHovered ? 180 : 0,
               }}
-              transition={{ duration: 0.6 }}
+              transition={{ duration: 0.5 }}
             >
-              <div className={`relative w-16 h-16 bg-gradient-to-br ${badge.gradient} rounded-2xl shadow-2xl flex items-center justify-center`}>
-                <div className="absolute inset-0 bg-gradient-to-br from-white/30 to-transparent rounded-2xl"></div>
+              <div className={`relative w-16 h-16 bg-gradient-to-br ${badge.gradient} rounded-xl shadow-lg flex items-center justify-center`}>
+                <div className="absolute inset-0 bg-gradient-to-br from-white/20 to-transparent rounded-xl"></div>
                 <i className={`fas ${badge.icon} text-white text-2xl relative z-10`}></i>
               </div>
-              
-              {/* Animated Ring */}
-              <motion.div
-                className={`absolute inset-0 border-2 border-white/30 rounded-2xl`}
-                animate={{
-                  scale: isHovered ? [1, 1.2, 1] : 1,
-                  opacity: isHovered ? [1, 0, 1] : 0,
-                }}
-                transition={{
-                  duration: 1.5,
-                  repeat: Infinity,
-                }}
-              />
             </motion.div>
           </div>
 
@@ -248,21 +173,15 @@ export default function PremiumBadgeCard({ badge, index }: { badge: BadgeProps; 
 
           {/* CTA Button */}
           <motion.button
-            className={`w-full bg-gradient-to-r ${badge.gradient} text-white font-bold py-3.5 rounded-xl shadow-xl relative overflow-hidden group/btn`}
-            whileHover={{ scale: 1.02 }}
+            className={`w-full bg-gradient-to-r ${badge.gradient} text-white font-bold py-3.5 rounded-xl shadow-lg relative overflow-hidden`}
+            whileHover={{ scale: 1.01 }}
             whileTap={{ scale: 0.98 }}
           >
-            <motion.div
-              className="absolute inset-0 bg-white/20"
-              initial={{ x: "-100%" }}
-              whileHover={{ x: "100%" }}
-              transition={{ duration: 0.5 }}
-            />
             <span className="relative z-10 flex items-center justify-center gap-2">
               <span>আপগ্রেড করুন</span>
               <motion.i
                 className="fas fa-arrow-right"
-                animate={{ x: isHovered ? 5 : 0 }}
+                animate={{ x: isHovered ? 3 : 0 }}
                 transition={{ duration: 0.3 }}
               />
             </span>
