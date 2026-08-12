@@ -2,22 +2,7 @@
 
 export default function Hero() {
   return (
-    <section className="safe-area-top container-padding pt-4 pb-6">
-      {/* Minimalist Top Header */}
-      <div className="flex items-center justify-between mb-8 px-1">
-        <div className="flex items-center gap-3">
-          <div className="w-10 h-10 bg-gradient-to-br from-amber-400 to-amber-600 rounded-2xl flex items-center justify-center shadow-lg">
-            <i className="fas fa-crown text-black text-lg"></i>
-          </div>
-          <div>
-            <h1 className="text-lg font-semibold tracking-tight">Crown<span className="text-amber-400">AI</span></h1>
-          </div>
-        </div>
-        <button className="w-9 h-9 glass-card rounded-xl flex items-center justify-center hover:border-amber-400/30">
-          <i className="fas fa-bell text-amber-400 text-sm"></i>
-        </button>
-      </div>
-
+    <section className="container-padding pt-2 pb-6">
       {/* Minimal Balance Card */}
       <div className="badge-card rounded-3xl p-6 mb-6">
         <p className="text-gray-500 text-xs mb-1 uppercase tracking-wider">মোট ব্যালেন্স</p>

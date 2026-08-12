@@ -100,7 +100,7 @@ export default function TeamPage() {
   }, 0).toLocaleString('bn-BD');
 
   return (
-    <div className="container-padding pt-6 safe-area-top pb-4">
+    <div className="container-padding pt-6 pb-4">
       {/* Header Section */}
       <motion.div
         className="text-center mb-6"

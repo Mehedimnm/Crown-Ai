@@ -6,6 +6,7 @@ import Marquee from '@/components/Marquee';
 import BadgesSection from '@/components/BadgesSection';
 import BottomNav from '@/components/BottomNav';
 import TeamPage from '@/components/TeamPage';
+import TopBar from '@/components/TopBar';
 
 export default function Home() {
   const [activeTab, setActiveTab] = useState('home');
@@ -15,6 +16,9 @@ export default function Home() {
       {/* Subtle Background Orbs */}
       <div className="glow-orb bg-amber-600/20 w-[300px] h-[300px] top-[-100px] left-[-100px]"></div>
       <div className="glow-orb bg-purple-600/10 w-[400px] h-[400px] bottom-[20%] right-[-150px]"></div>
+
+      {/* Top Bar - Always Visible */}
+      <TopBar />
 
       {/* Main Content */}
       <div className="relative z-10">
@@ -26,13 +30,13 @@ export default function Home() {
         )}
 
         {activeTab === 'invest' && (
-          <div className="pt-6 safe-area-top">
+          <div className="pt-6">
             <BadgesSection />
           </div>
         )}
 
         {activeTab === 'wallet' && (
-          <div className="container-padding pt-6 safe-area-top">
+          <div className="container-padding pt-6">
             <div className="text-center mb-6">
               <h2 className="text-2xl font-bold mb-2 tracking-tight">ওয়ালেট</h2>
               <p className="text-gray-600 text-sm">আপনার ওয়ালেট ব্যালেন্স</p>
@@ -66,7 +70,7 @@ export default function Home() {
         )}
 
         {activeTab === 'profile' && (
-          <div className="container-padding pt-6 safe-area-top">
+          <div className="container-padding pt-6">
             <div className="text-center mb-6">
               <h2 className="text-2xl font-bold mb-2 tracking-tight">প্রোফাইল</h2>
               <p className="text-gray-600 text-sm">আপনার অ্যাকাউন্ট তথ্য</p>
