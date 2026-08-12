@@ -21,25 +21,12 @@ export default function Home() {
           <>
             <Hero />
             <Marquee />
-            <BadgesSection />
           </>
         )}
 
         {activeTab === 'invest' && (
-          <div className="container-padding pt-6 safe-area-top">
-            <div className="text-center mb-6">
-              <h2 className="text-2xl font-bold mb-2 tracking-tight">ইনভেস্টমেন্ট</h2>
-              <p className="text-gray-600 text-sm">আপনার বিনিয়োগ ড্যাশবোর্ড</p>
-            </div>
-            <div className="badge-card rounded-3xl p-8 text-center">
-              <div className="w-16 h-16 mx-auto mb-4 bg-gradient-to-br from-amber-400 to-amber-600 rounded-2xl flex items-center justify-center shadow-lg">
-                <i className="fas fa-chart-line text-white text-2xl"></i>
-              </div>
-              <p className="text-gray-500 text-sm">কোনো সক্রিয় ইনভেস্টমেন্ট নেই</p>
-              <button className="mt-4 btn-gradient text-black font-medium py-2.5 px-6 rounded-2xl text-sm">
-                শুরু করুন
-              </button>
-            </div>
+          <div className="pt-6 safe-area-top">
+            <BadgesSection />
           </div>
         )}
 
