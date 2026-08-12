@@ -97,7 +97,7 @@ export default function TeamPage() {
   const totalEarnings = referralLevels.reduce((acc, level) => {
     const earnings = parseInt(level.yourEarnings.replace(/,/g, ''));
     return acc + earnings;
-  }, 0).toLocaleString('bn-BD');
+  }, 0);
 
   return (
     <div className="container-padding pt-6 pb-4">
@@ -133,7 +133,7 @@ export default function TeamPage() {
             </div>
             <div>
               <p className="text-xs text-gray-500">মোট সদস্য</p>
-              <p className="text-2xl font-black text-white">{totalMembers.toLocaleString('bn-BD')}</p>
+              <p className="text-2xl font-black text-white">{totalMembers.toLocaleString()}</p>
             </div>
           </div>
         </motion.div>
@@ -151,7 +151,7 @@ export default function TeamPage() {
             </div>
             <div>
               <p className="text-xs text-gray-500">মোট আয়</p>
-              <p className="text-2xl font-black text-amber-400">৳{totalEarnings}</p>
+              <p className="text-2xl font-black text-amber-400">৳{totalEarnings.toLocaleString()}</p>
             </div>
           </div>
         </motion.div>
@@ -280,7 +280,7 @@ export default function TeamPage() {
                         <h4 className="text-base font-bold text-white">{level.name}</h4>
                         <p className="text-xs text-gray-500">
                           <i className="fas fa-users mr-1"></i>
-                          {level.members.toLocaleString('bn-BD')} জন সদস্য
+                          {level.members.toLocaleString()} জন সদস্য
                         </p>
                       </div>
                     </div>
@@ -342,13 +342,13 @@ export default function TeamPage() {
                         <div className="flex items-center justify-between text-xs">
                           <span className="text-gray-400">প্রতি ১০,০০০৳ এ কমিশন:</span>
                           <span className="font-bold text-white">
-                            ৳{(10000 * parseInt(level.commission) / 100).toLocaleString('bn-BD')}
+                            ৳{Math.floor(10000 * parseInt(level.commission) / 100)}
                           </span>
                         </div>
                         <div className="flex items-center justify-between text-xs">
                           <span className="text-gray-400">গড় মাসিক আয়:</span>
                           <span className="font-bold text-emerald-400">
-                            ৳{(parseInt(level.yourEarnings.replace(/,/g, '')) / 12).toFixed(0).toLocaleString('bn-BD')}
+                            ৳{Math.floor(parseInt(level.yourEarnings.replace(/,/g, '')) / 12)}
                           </span>
                         </div>
                         <div className="flex items-center justify-between text-xs">
