@@ -5,6 +5,7 @@ import Hero from '@/components/Hero';
 import Marquee from '@/components/Marquee';
 import BadgesSection from '@/components/BadgesSection';
 import BottomNav from '@/components/BottomNav';
+import TeamPage from '@/components/TeamPage';
 
 export default function Home() {
   const [activeTab, setActiveTab] = useState('home');
@@ -61,22 +62,7 @@ export default function Home() {
         )}
 
         {activeTab === 'team' && (
-          <div className="container-padding pt-6 safe-area-top">
-            <div className="text-center mb-6">
-              <h2 className="text-2xl font-bold mb-2 tracking-tight">টিম</h2>
-              <p className="text-gray-600 text-sm">আপনার রেফারেল টিম</p>
-            </div>
-            <div className="badge-card rounded-3xl p-8 text-center">
-              <div className="w-16 h-16 mx-auto mb-4 bg-gradient-to-br from-cyan-400 to-cyan-600 rounded-2xl flex items-center justify-center shadow-lg">
-                <i className="fas fa-users text-white text-2xl"></i>
-              </div>
-              <p className="text-gray-500 text-sm mb-2">কোনো টিম মেম্বার নেই</p>
-              <p className="text-xs text-gray-600 mb-4">আপনার রেফারেল কোড শেয়ার করুন</p>
-              <button className="btn-gradient text-black font-medium py-2.5 px-6 rounded-2xl text-sm">
-                শেয়ার করুন
-              </button>
-            </div>
-          </div>
+          <TeamPage />
         )}
 
         {activeTab === 'profile' && (
